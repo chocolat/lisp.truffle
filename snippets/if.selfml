@@ -1,0 +1,9 @@
+(name if)
+
+(trigger
+    (tab if))
+
+(only-in source.lisp)
+
+(snippet [(if (%{1="test"})
+	(%{0}))])

@@ -1,0 +1,9 @@
+(name let1)
+
+(trigger
+    (tab let1))
+
+(only-in source.lisp)
+
+(snippet [(let ((%{1="variable"} %{2="value"}))
+	(%{0}))])

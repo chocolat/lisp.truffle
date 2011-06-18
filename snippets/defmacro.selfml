@@ -1,0 +1,10 @@
+(name defmacro)
+
+(trigger
+    (tab mac))
+
+(only-in source.lisp)
+
+(snippet [(defmacro %{1="name"} (%{2="parameters"})
+	"%{3="Documentation for %{1}."}"
+	(%{0}))])

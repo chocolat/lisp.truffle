@@ -1,0 +1,45 @@
+(root source.lisp
+    (zone comment.line.semicolon.lisp
+        (match
+            (regex [(;).*$\n?]
+                (1 punctuation.definition.comment.lisp))))
+    (zone meta.function.lisp
+        (match
+            (regex [(\b(?i:(defun|defmethod|defmacro))\b)(\s+)((\w|\-|\!|\?)*)]
+                (4 entity.name.function.lisp)
+                (2 storage.type.function-type.lisp))))
+    (zone constant.character.lisp
+        (match
+            (regex [(#)(\w|[\\+-=<>'"&#])+]
+                (1 punctuation.definition.constant.lisp))))
+    (zone variable.other.global.lisp
+        (match
+            (regex [(\*)(\S*)(\*)]
+                (3 punctuation.definition.variable.lisp)
+                (1 punctuation.definition.variable.lisp))))
+    (zone keyword.control.lisp
+        (match
+            (regex [\b(?i:case|do|let|loop|if|else|when)\b])))
+    (zone keyword.operator.lisp
+        (match
+            (regex [\b(?i:eq|neq|and|or)\b])))
+    (zone constant.language.lisp
+        (match
+            (regex [\b(?i:null|nil)\b])))
+    (zone support.function.lisp
+        (match
+            (regex [\b(?i:cons|car|cdr|cond|lambda|format|setq|setf|quote|eval|append|list|listp|memberp|t|load|progn)\b])))
+    (zone constant.numeric.lisp
+        (match
+            (regex [\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\b])))
+    (zone string.quoted.double.lisp
+        (start
+            (regex "
+                (0 punctuation.definition.string.begin.lisp)))
+        (end
+            (regex "
+                (0 punctuation.definition.string.end.lisp)))
+        (subzones
+            (zone constant.character.escape.lisp
+                (match
+                    (regex \\.))))))

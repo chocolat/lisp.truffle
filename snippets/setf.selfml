@@ -1,0 +1,8 @@
+(name setf)
+
+(trigger
+    (tab setf))
+
+(only-in source.lisp)
+
+(snippet [(setf %{1="place"} %{2="value"})])

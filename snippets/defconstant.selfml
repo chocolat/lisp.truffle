@@ -1,0 +1,9 @@
+(name defconstant)
+
+(trigger
+    (tab const))
+
+(only-in source.lisp)
+
+(snippet [(defconstant +%{1="name"}+ %{2="value"}
+	"%{3="Documentation for %{1}."}"))])

@@ -1,0 +1,9 @@
+(name defvar)
+
+(trigger
+    (tab var))
+
+(only-in source.lisp)
+
+(snippet [(defvar *%{1="name"}* %{2="value"}
+	"%{3="Documentation for %{1}."}")])

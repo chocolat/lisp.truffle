@@ -1,0 +1,10 @@
+(name defun)
+
+(trigger
+    (tab fun))
+
+(only-in source.lisp)
+
+(snippet [(defun %{1="name"} (%{2="parameters"})
+	"%{3="Documentation for %{1}."}"
+	(%{0}))])
